@@ -8,7 +8,9 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 import org.apache.poi.ss.usermodel.Cell;
+import org.apache.poi.ss.usermodel.DataFormatter;
 import org.apache.poi.ss.usermodel.Row;
+import org.apache.poi.xssf.usermodel.XSSFCell;
 import org.apache.poi.xssf.usermodel.XSSFSheet;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 
@@ -29,7 +31,7 @@ public class Input {
 					"C:\\Users\\Mari\\Desktop\\SECRETARIA\\Dados\\Levantamento_para_TG1.xlsx");
 			
 			String csv = "C:\\Users\\Mari\\Desktop\\SECRETARIA\\Dados\\Levantamento_para_TG2.csv";
-			CSVWriter writer = new CSVWriter(new FileWriter(csv));
+			CSVWriter writer = new CSVWriter(new FileWriter(csv),';', CSVWriter.NO_QUOTE_CHARACTER);
 			
 			fisPlanilha = new FileInputStream(file);
 			
@@ -69,7 +71,7 @@ public class Input {
 
 					//nome
 					if (columnNumber == 0) {
-						if (cell.getStringCellValue().equals("NOME")){
+						/*if (cell.getStringCellValue().equals("NOME")){
 							line = line + "nome;";
 						}else{
 							line = line + String.valueOf(cell.getStringCellValue()) + ";";
@@ -96,6 +98,18 @@ public class Input {
 						}
 					//idade
 					} else if (columnNumber == 3) {
+						//Estava dando um erro muito louco nessa coluna, 
+						//por isso foi colocado um formatador para conseguir pegar o valor 
+						//como string usando o próprio tipo da célula
+						final DataFormatter df = new DataFormatter();
+						final XSSFCell cell1 = (XSSFCell) row.getCell(columnNumber);
+						String valueAsString = df.formatCellValue(cell1);
+						
+						if (valueAsString.equals("Idade na Matrícula")){
+							line = line + "idade;";
+						} else{
+							line = line + valueAsString+";";							
+						}
 						
 					//cor
 					} else if (columnNumber == 4) {
@@ -111,11 +125,16 @@ public class Input {
 							line = line + "negra;";
 						} else if (cell.getStringCellValue().equals("Não Informado")){
 							line = line + "nao_declarado;";
-						} else if (cell.getStringCellValue().equals("Indígena")){
+						} else if (cell.getStringCellValue().equals("Não Informada")){
+							line = line + "nao_declarado;";
+						}else if (cell.getStringCellValue().equals("Indígena")){
 							line = line + "indigena;";
 						}else if(cell.getStringCellValue().equals("Amarela")){
 							line = line + "amarela;";
 						}
+						
+						
+
 					//situacao do curso
 					} else if (columnNumber == 5) {
 						if(cell.getStringCellValue().equals("Situação Curso")){
@@ -229,23 +248,23 @@ public class Input {
 					//renda familiar
 					} else if (columnNumber == 23) {
 						if (cell.getStringCellValue().equals("RENDA FAMILIAR")){
-							line = line + "renda_familiar;";
+							line = line + "renda_familiar";
 						}else if (cell.getStringCellValue().equals("De 1 a 2 s.m.")){
-							line = line + "baixa;";
+							line = line + "baixa";
 						}else if (cell.getStringCellValue().equals("De 3 a 5 s.m.")){
-							line = line + "medio;";
+							line = line + "medio";
 						}else if (cell.getStringCellValue().equals("De 6 a 10 s.m. ")){
-							line = line + "medio;";
+							line = line + "medio";
 						}else if (cell.getStringCellValue().equals("De 11 a 20 s.m.")){
-							line = line + "alto;";
+							line = line + "alto";
 						}else if (cell.getStringCellValue().equals("De 21 a 30 s.m.")){
-							line = line + "alto;";
+							line = line + "alto";
 						}else if (cell.getStringCellValue().equals("Mais de 30 s.m.")){
-							line = line + "alto;";
+							line = line + "alto";
 						}else if (cell.getStringCellValue().equals("Zero")){
-							line = line + "nao_informado;";
+							line = line + "nao_informado";
 						}else if (cell.getStringCellValue().equals("-")){
-							line = line + "nao_informado;";
+							line = line + "nao_informado";
 						}
 					//previsao
 					} else if (columnNumber == 24) {
@@ -274,6 +293,7 @@ public class Input {
 					 * cell.getCellFormula());
 					 */// }
 				}
+		
 				String[] array = line.split(";");
 				writer.writeNext(array);
 				
