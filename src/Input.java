@@ -28,9 +28,9 @@ public class Input {
 		
 		try {
 			File file = new File(
-					"C:\\Users\\Mari\\Desktop\\SECRETARIA\\Dados\\Levantamento_para_TG1.xlsx");
+					"C:\\Users\\Mari\\Desktop\\Dados_teste\\Levantamento_para_TG1.xlsx");
 			
-			String csv = "C:\\Users\\Mari\\Desktop\\SECRETARIA\\Dados\\Levantamento_para_TG2.csv";
+			String csv = "C:\\Users\\Mari\\Desktop\\Dados_teste\\limpeza_inicial.csv";
 			CSVWriter writer = new CSVWriter(new FileWriter(csv),';', CSVWriter.NO_QUOTE_CHARACTER);
 			
 			fisPlanilha = new FileInputStream(file);
@@ -71,17 +71,43 @@ public class Input {
 
 					//nome
 					if (columnNumber == 0) {
-						/*if (cell.getStringCellValue().equals("NOME")){
+						if (cell.getStringCellValue().equals("NOME")){
 							line = line + "nome;";
 						}else{
 							line = line + String.valueOf(cell.getStringCellValue()) + ";";
 						}
 					//curso	
 					} else if (columnNumber == 1) {
-						/*if (cell.getStringCellValue().equals("Curso")){
-							line = line + "curso;";
-						}*/
-						
+
+						if (cell.getStringCellValue().equals("Curso")) {
+							line = line + String.valueOf("curso;");
+						} else if (cell.getStringCellValue().equals("Curso Superior de Tecnologia em Análise e Desenvolvimento de Sistemas")) {
+							line = line + "analise_e_deselvolvimento_de_sistemas;";
+						} else if (cell.getStringCellValue().equals("Curso Superior de Tecnologia em Automação Aeronáutica")) {
+							line = line + "automacao_aeronautica;";
+						} else if (cell.getStringCellValue().equals("Curso Superior de Tecnologia em Automação e Manufatura Digital")) {
+							line = line + "automacao_e_manufatura_digital;";
+						} else if (cell.getStringCellValue().equals("Curso Superior de Tecnologia em Banco de Dados")) {
+							line = line + "banco_de_dados;";
+						} else if (cell.getStringCellValue().equals("Curso Superior de Tecnologia em Banco de Dados ou Redes de Computadores")) {
+							line = line + "banco_ou_redes;";
+						} else if (cell.getStringCellValue().equals("Curso Superior de Tecnologia em Estruturas Leves")) {
+							line = line + "estruturas_leves;";
+						} else if (cell.getStringCellValue().equals("Curso Superior de Tecnologia em Gestão da Produção Industrial")) {
+							line = line + "gestao_da_producao;";
+						} else if (cell.getStringCellValue().equals("Curso Superior de Tecnologia em Gestão Empresarial")) {
+							line = line + "gestao_empresarial;";
+						} else if (cell.getStringCellValue().equals("Curso Superior de Tecnologia em Logística")) {
+							line = line + "logistica;";
+						} else if (cell.getStringCellValue().equals("Curso Superior de Tecnologia em Logística e Transporte")) {
+							line = line + "logistica_e_transporte;";
+						} else if (cell.getStringCellValue().equals("Curso Superior de Tecnologia em Manufatura Aeronáutica")) {
+							line = line + "manufatura_aeronautica;";
+						} else if (cell.getStringCellValue().equals("Curso Superior de Tecnologia em Manutenção de Aeronaves")) {
+							line = line + "manutencao_de_aeronave;";
+						} else if (cell.getStringCellValue().equals("Curso Superior de Tecnologia em Projetos de Estruturas Aeronáuticas")) {
+							line = line + "projetos_de_estruturas_aeronauticas;";
+						}
 					//turno
 					} else if (columnNumber == 2) {
 			
@@ -116,7 +142,7 @@ public class Input {
 						if(cell.getStringCellValue().equals("Cor")){
 							line = line + "cor;";
 						} else if (cell.getStringCellValue().equals("Não Declarado")){
-							line = line + "nao_declarado;";
+							line = line + "nao_informado;";
 						} else if (cell.getStringCellValue().equals("Branca")){
 							line = line + "branca;";
 						} else if (cell.getStringCellValue().equals("Parda")){
@@ -124,9 +150,9 @@ public class Input {
 						} else if (cell.getStringCellValue().equals("Negra")){
 							line = line + "negra;";
 						} else if (cell.getStringCellValue().equals("Não Informado")){
-							line = line + "nao_declarado;";
+							line = line + "nao_informado;";
 						} else if (cell.getStringCellValue().equals("Não Informada")){
-							line = line + "nao_declarado;";
+							line = line + "nao_informado;";
 						}else if (cell.getStringCellValue().equals("Indígena")){
 							line = line + "indigena;";
 						}else if(cell.getStringCellValue().equals("Amarela")){
@@ -248,23 +274,23 @@ public class Input {
 					//renda familiar
 					} else if (columnNumber == 23) {
 						if (cell.getStringCellValue().equals("RENDA FAMILIAR")){
-							line = line + "renda_familiar";
+							line = line + "renda_familiar;";
 						}else if (cell.getStringCellValue().equals("De 1 a 2 s.m.")){
-							line = line + "baixa";
+							line = line + "baixa;";
 						}else if (cell.getStringCellValue().equals("De 3 a 5 s.m.")){
-							line = line + "medio";
+							line = line + "medio;";
 						}else if (cell.getStringCellValue().equals("De 6 a 10 s.m. ")){
-							line = line + "medio";
+							line = line + "medio;";
 						}else if (cell.getStringCellValue().equals("De 11 a 20 s.m.")){
-							line = line + "alto";
+							line = line + "alto;";
 						}else if (cell.getStringCellValue().equals("De 21 a 30 s.m.")){
-							line = line + "alto";
+							line = line + "alto;";
 						}else if (cell.getStringCellValue().equals("Mais de 30 s.m.")){
-							line = line + "alto";
+							line = line + "alto;";
 						}else if (cell.getStringCellValue().equals("Zero")){
-							line = line + "nao_informado";
+							line = line + "nao_informado;";
 						}else if (cell.getStringCellValue().equals("-")){
-							line = line + "nao_informado";
+							line = line + "nao_informado;";
 						}
 					//previsao
 					} else if (columnNumber == 24) {
@@ -274,6 +300,11 @@ public class Input {
 					} else if (columnNumber == 26) {
 					//periodo de ingresso
 					} else if (columnNumber == 27) {
+						if (cell.getStringCellValue().equals("Período de Ingresso")){
+							line = line + "ingresso;";
+						}else{
+							line = line + String.valueOf(cell.getStringCellValue()) + ";";
+						}
 					//conclusao
 					} else if (columnNumber == 28) {
 					//colacao
