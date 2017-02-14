@@ -1,5 +1,7 @@
 import java.io.FileReader;
 import java.io.FileWriter;
+import java.lang.reflect.Array;
+import java.util.Arrays;
 import java.util.List;
 
 import com.opencsv.CSVReader;
@@ -19,12 +21,12 @@ public class LimpaDuplicidade {
 		CSVWriter writer = new CSVWriter(new FileWriter(csv),';', CSVWriter.NO_QUOTE_CHARACTER);
 
 		String line = "";
-		// Read all rows at once
+		// Read all rows at onces
 		List<String[]> allRows = reader.readAll();
 
 		// Read CSV line by line and use the string array as you want
 
-		for (int count = 0; count < allRows.size(); count++) {
+		for (int count = 1; count < allRows.size(); count++) {
 
 			// allRows.get pega a linha e divide as colunas em um array de
 			// string
@@ -35,23 +37,28 @@ public class LimpaDuplicidade {
 			if(count2 > count){
 				count = count2;
 			}else{
-				//line = allRows
+				
+				writer.writeNext(coluna);
 			}
 
 		}
+		
+		writer.close();
+		System.out.println("Done!");
 
 	}
 
 	public int checaDuplicidade(int count, List<String[]> allRows, int size) {
 
 		int qtdRepetidos = 0;
+		int countOld = count;
 		// condicao para sair do while
 		boolean out = false;
 
 		String[] coluna = allRows.get(count);
 
 		// while deve ser executado até encontrar uma linha que não se repita
-		while (out == false || count < size) {
+		while ((out == false) && (count < size-1)) {
 			
 			String[] coluna2 = allRows.get(count + 1);
 
@@ -61,11 +68,10 @@ public class LimpaDuplicidade {
 			} else {
 				out = true;
 			}
-
 		}
 
 		if (qtdRepetidos > 0) {
-			return (count + qtdRepetidos + 1);
+			return (countOld + qtdRepetidos);
 		} else {
 			return count;
 		}
