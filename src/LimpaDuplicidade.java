@@ -127,6 +127,7 @@ public class LimpaDuplicidade {
 		
 		writer.close();
 		writer2.close();
+		writer3.close();
 		System.out.println("Done!");
 
 	}
