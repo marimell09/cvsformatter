@@ -166,9 +166,9 @@ public class Input {
 						if(cell.getStringCellValue().equals("Situação Curso")){
 							line = line + "situacao_do_curso;";
 						}else if (cell.getStringCellValue().equals("Graduado")){
-							line = line + "graduado;";
+							line = line + "em_curso;";
 						}else if (cell.getStringCellValue().equals("Concluído")){
-							line = line + "graduado;";
+							line = line + "em_curso;";
 						} else if (cell.getStringCellValue().equals("Em Curso")){
 							line = line + "em_curso;";
 						} else if (cell.getStringCellValue().equals("Ciência sem Fronteiras")){

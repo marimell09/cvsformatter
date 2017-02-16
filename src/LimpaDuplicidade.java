@@ -59,7 +59,6 @@ public class LimpaDuplicidade {
 			
 			if (escreve == true){
 
-				
 				//turno
 				//caso o turno seja ead, não escreve a linha
 				if(coluna[2].equals("ead")){
@@ -165,9 +164,9 @@ public class LimpaDuplicidade {
 	
 	public String[] escreveLinha(String[] linha, String[] coluna){
 		
+		
 		linha = new String[8];
-		//linha[0] = coluna[0];
-		linha[0] = coluna[2];
+		linha[0] = coluna[0];
 		linha[1] = coluna[3];
 		linha[2] = coluna[4];
 		linha[3] = coluna[5];
@@ -176,6 +175,17 @@ public class LimpaDuplicidade {
 		linha[6] = coluna[8];
 		linha[7] = coluna[9];
 		
+		/*
+		linha = new String[7];
+		linha[0] = coluna[3];
+		linha[1] = coluna[4];
+		linha[2] = coluna[5];
+		linha[3] = coluna[6];
+		linha[4] = coluna[7];
+		linha[5] = coluna[8];
+		linha[6] = coluna[9];
+		 */
+
 		return linha;
 	}
 }
