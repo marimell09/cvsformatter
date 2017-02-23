@@ -27,14 +27,17 @@ public class Input {
 		FileInputStream fisPlanilha = null;
 		
 		try {
+			
+			//Arquivo excel xlsx
 			File file = new File(
 					"C:\\Users\\Mari\\Desktop\\Dados_teste\\Levantamento_para_TG1.xlsx");
 			
-			String csv = "C:\\Users\\Mari\\Desktop\\Dados_teste\\limpeza_inicial.csv";
-			CSVWriter writer = new CSVWriter(new FileWriter(csv),';', CSVWriter.NO_QUOTE_CHARACTER);
-			
+			//Necessário para leitura de arquivo excel xlsx
 			fisPlanilha = new FileInputStream(file);
 			
+			//Instancia para escrita em arquivo com formato csv
+			String csv = "C:\\Users\\Mari\\Desktop\\Dados_teste\\limpeza_inicial.csv";
+			CSVWriter writer = new CSVWriter(new FileWriter(csv),';', CSVWriter.NO_QUOTE_CHARACTER);
 			
 
 			// cria um workbook = planilha toda com todas as abas
@@ -78,7 +81,9 @@ public class Input {
 						}
 					//curso	
 					} else if (columnNumber == 1) {
-
+						/*
+						 * Inicio a limpeza processando o testo da planilha para palavras chave
+						 */
 						if (cell.getStringCellValue().equals("Curso")) {
 							line = line + String.valueOf("curso;");
 						} else if (cell.getStringCellValue().equals("Curso Superior de Tecnologia em Análise e Desenvolvimento de Sistemas")) {
@@ -110,7 +115,9 @@ public class Input {
 						}
 					//turno
 					} else if (columnNumber == 2) {
-			
+						/*
+						 * Inicio a limpeza processando o testo da planilha para palavras chave
+						 */
 						if (cell.getStringCellValue().equals("Turno")){
 							line = line + String.valueOf("turno;");
 						} else if (cell.getStringCellValue().equals("Manhã")){
@@ -139,6 +146,9 @@ public class Input {
 						
 					//cor
 					} else if (columnNumber == 4) {
+						/*
+						 * Inicio a limpeza processando o testo da planilha para palavras chave
+						 */
 						if(cell.getStringCellValue().equals("Cor")){
 							line = line + "cor;";
 						} else if (cell.getStringCellValue().equals("Não Declarado")){
@@ -159,10 +169,11 @@ public class Input {
 							line = line + "amarela;";
 						}
 						
-						
-
 					//situacao do curso
 					} else if (columnNumber == 5) {
+						/*
+						 * Inicio a limpeza processando o testo da planilha para palavras chave
+						 */
 						if(cell.getStringCellValue().equals("Situação Curso")){
 							line = line + "situacao_do_curso;";
 						}else if (cell.getStringCellValue().equals("Graduado")){
@@ -185,6 +196,10 @@ public class Input {
 							line = line + "cancelado;";
 						}
 
+						/*
+						 * Os else if que estiverem em branco não estão sendo armazenados na 
+						 * variável line e não são escritos na planilha de limpezaInicial 
+						 */
 					//pp
 					} else if (columnNumber == 6) {
 					//pr
@@ -211,6 +226,9 @@ public class Input {
 					} else if (columnNumber == 17) {
 					//escola publica
 					} else if (columnNumber == 18) {
+						/*
+						 * Inicio a limpeza processando o testo da planilha para palavras chave
+						 */
 						if(cell.getStringCellValue().equals("ESCOLA")){
 							line = line + "escola;";
 						}else if (cell.getStringCellValue().equals("NÃO")){
@@ -226,6 +244,9 @@ public class Input {
 					} else if (columnNumber == 20) {
 					//escola pai
 					} else if (columnNumber == 21) {
+						/*
+						 * Inicio a limpeza processando o testo da planilha para palavras chave
+						 */
 						if (cell.getStringCellValue().equals("ESCOLA PAI")){
 							line = line + "escola_pai;";
 						}else if (cell.getStringCellValue().equals("Analfabeto")){
@@ -250,6 +271,9 @@ public class Input {
 						
 					//escola mae
 					} else if (columnNumber == 22) {
+						/*
+						 * Inicio a limpeza processando o testo da planilha para palavras chave
+						 */
 						if (cell.getStringCellValue().equals("ESCOLA MÃE")){
 							line = line + "escola_mae;";
 						}else if (cell.getStringCellValue().equals("Analfabeta")){
@@ -273,6 +297,9 @@ public class Input {
 						}
 					//renda familiar
 					} else if (columnNumber == 23) {
+						/*
+						 * Inicio a limpeza processando o testo da planilha para palavras chave
+						 */
 						if (cell.getStringCellValue().equals("RENDA FAMILIAR")){
 							line = line + "renda_familiar;";
 						}else if (cell.getStringCellValue().equals("De 1 a 2 s.m.")){
@@ -315,24 +342,23 @@ public class Input {
 					} else if (columnNumber == 31) {
 
 					}
-
-					// switch (cell.getCellType()) {
-
-					/*
-					 * case Cell.CELL_TYPE_FORMULA:
-					 * System.out.println("TIPO FORMULA: " +
-					 * cell.getCellFormula());
-					 */// }
 				}
 		
+				//Divido todas a linha para cada ; que existir
 				String[] array = line.split(";");
+				//Escrevo cada linha utilizando a instancia do writer
 				writer.writeNext(array);
 				
-				
 			}
+			
+			/*fecha a instancia do writer para encerrar a 
+			 * gravação e manter os dados armazenados
+			 */
 			writer.close();
 
 			System.out.println("Done!");
+			
+		//Filtragem de erro	
 		} catch (FileNotFoundException ex) {
 			Logger.getLogger(Input.class.getName()).log(Level.SEVERE, null, ex);
 		} catch (IOException ex) {
@@ -346,26 +372,6 @@ public class Input {
 			}
 		}
 
-	}
-
-	public void output() {
-
-	/*	if (number.equals("1")) {
-			FileWriter outFile;
-
-			try {
-				outFile = new FileWriter(
-						new File(
-								"C:\\workspace_eclipse\\SDM_LAB4\\src\\cus1156\\lab4\\report.txt"));
-				outFile.write(roster.toString());
-				outFile.close();
-			} catch (IOException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
-
-		}
-*/
 	}
 
 }
