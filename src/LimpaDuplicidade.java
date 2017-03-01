@@ -20,7 +20,7 @@ public class LimpaDuplicidade {
 
 		// Criando a instancia de leitura
 		CSVReader reader = new CSVReader(new FileReader(
-				"C:\\Users\\Mari\\Desktop\\Dados_teste\\limpeza_inicial.csv"),
+				"C:\\Users\\Mari\\Desktop\\Dados_teste\\dados\\por_curso\\limpeza_inicial.csv"),
 				';');
 
 		//Criando todas as instancias de escrita

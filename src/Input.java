@@ -36,8 +36,8 @@ public class Input {
 			fisPlanilha = new FileInputStream(file);
 			
 			//Instancia para escrita em arquivo com formato csv
-			String csv = "C:\\Users\\Mari\\Desktop\\Dados_teste\\limpeza_inicial.csv";
-			CSVWriter writer = new CSVWriter(new FileWriter(csv),';', CSVWriter.NO_QUOTE_CHARACTER);
+			String csv = "C:\\Users\\Mari\\Desktop\\Dados_teste\\dados\\por_curso\\limpeza_inicial.csv";
+			CSVWriter writer = new CSVWriter(new FileWriter(csv),',', CSVWriter.NO_QUOTE_CHARACTER);
 			
 
 			// cria um workbook = planilha toda com todas as abas
