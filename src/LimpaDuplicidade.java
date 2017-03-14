@@ -21,7 +21,7 @@ public class LimpaDuplicidade {
 		// Criando a instancia de leitura
 		CSVReader reader = new CSVReader(new FileReader(
 				"C:\\Users\\Mari\\Desktop\\Dados_teste\\dados\\por_curso\\limpeza_inicial.csv"),
-				';');
+				',');
 
 		//Criando todas as instancias de escrita
 		
@@ -196,14 +196,14 @@ public class LimpaDuplicidade {
 					// escola
 				} else if (coluna[6].equals("nao_informado")) {
 					escreve = false;
-					// escola pai
-				} else if (coluna[7].equals("nao_informado")) {
-					escreve = false;
-					// escola mae
+				// escola pai
 				} else if (coluna[8].equals("nao_informado")) {
 					escreve = false;
-					// renda familiar
+					// escola mae
 				} else if (coluna[9].equals("nao_informado")) {
+					escreve = false;
+					// renda familiar
+				} else if (coluna[10].equals("nao_informado")) {
 					escreve = false;
 				}
 
@@ -224,6 +224,16 @@ public class LimpaDuplicidade {
 					coluna[3] = "71_a_120";
 				}
 				
+				/* Novo teste com ENEM para, separando as notas em ranges de alto, medio, baixo*/
+				float enem = Float.parseFloat(coluna[7]);
+				if (enem > 0 && enem < 31) {
+					coluna[7] = "baixo";
+				} else if (enem < 61) {
+					coluna[7] = "medio";
+				} else if (enem <= 100) {
+					coluna[7] = "alto";
+				}
+				
 				/*Meu método escreveLinha decide qual das colunas 
 				 * desejo escrever em caso de querer mudar uma delas futuramente
 				 */
@@ -242,7 +252,7 @@ public class LimpaDuplicidade {
 						|| coluna[10].substring(0, 4).equals("2011")
 						|| coluna[10].substring(0, 4).equals("2012")
 						|| coluna[10].substring(0, 4).equals("2013")
-						||*/ coluna[10].substring(0, 4).equals("2014")) {
+						||*/ coluna[11].equals("2014 / 1")) {
 
 					/*Separo por curso o training set
 					 */
@@ -280,8 +290,8 @@ public class LimpaDuplicidade {
 				
 				/*Separo por ano para conseguir fazer um validator
 				 */
-				if (coluna[10].substring(0, 4).equals("2015")
-						/*|| coluna[10].substring(0, 4).equals("2016")*/){
+				if (coluna[11].equals("2015 / 1")){
+						/*|| coluna[10].substring(0, 4).equals("2016"))*/
 
 					/*Separo por curso o validator
 					 */
@@ -321,8 +331,8 @@ public class LimpaDuplicidade {
 				 * Esse cabeçalho serve para conter todos os 
 				 * exemplos possíveis na hora da criação do arf
 				 */
-				if (coluna[10].substring(0, 4).equals("2015")
-					|| coluna[10].substring(0, 4).equals("2014")){
+				if (coluna[11].equals("2014 / 1")
+					|| coluna[11].equals("2015 / 1")){
 					
 					if (coluna[1].equals("analise_e_deselvolvimento_de_sistemas")) {
 						analise_w3_c.writeNext(linha);
@@ -453,7 +463,7 @@ public class LimpaDuplicidade {
 
 		/*
 		//escrita da linha contém o nome
-		linha = new String[8];
+		linha = new String[9];
 		linha[0] = coluna[0];
 		linha[1] = coluna[3];
 		linha[2] = coluna[4];
@@ -462,10 +472,11 @@ public class LimpaDuplicidade {
 		linha[5] = coluna[7];
 		linha[6] = coluna[8];
 		linha[7] = coluna[9];
-		 */
+		linha[8] = coluna[10];
+		*/
 
 		// escrita da linha sem o nome
-		linha = new String[7];
+		linha = new String[8];
 		linha[0] = coluna[3];
 		linha[1] = coluna[4];
 		linha[2] = coluna[5];
@@ -473,6 +484,7 @@ public class LimpaDuplicidade {
 		linha[4] = coluna[7];
 		linha[5] = coluna[8];
 		linha[6] = coluna[9];
+		linha[7] = coluna[10];
 
 		return linha;
 	}

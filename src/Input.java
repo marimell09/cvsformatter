@@ -242,6 +242,17 @@ public class Input {
 					} else if (columnNumber == 19) {
 					//enem
 					} else if (columnNumber == 20) {
+						final DataFormatter df = new DataFormatter();
+						final XSSFCell cell1 = (XSSFCell) row.getCell(columnNumber);
+						String valueAsString = df.formatCellValue(cell1);
+						
+						if (valueAsString.equals("ENEM")){
+							line = line + "enem;";
+						} else if (valueAsString.equals("-")){
+							line = line + "0;";
+						}else{
+							line = line + valueAsString+";";							
+						}
 					//escola pai
 					} else if (columnNumber == 21) {
 						/*
