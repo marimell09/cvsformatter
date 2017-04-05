@@ -220,6 +220,17 @@ public class Input {
 					} else if (columnNumber == 14) {
 					//cep
 					} else if (columnNumber == 15) {
+						if(cell.getStringCellValue().equals("CEP")){
+							line = line + "cep;";
+						}
+						else if (!cell.getStringCellValue().equals("-")){
+							String numero = cell.getStringCellValue();
+							numero = numero.substring(0, 3);
+							//System.out.println(numero);
+							line = line + numero + ";";
+						}else{
+							line = line + "nao_informado;";
+						}
 					//classificacao
 					} else if (columnNumber == 16) {
 					//nota
@@ -240,6 +251,11 @@ public class Input {
 						}
 					//sexo
 					} else if (columnNumber == 19) {
+						if (cell.getStringCellValue().equals("SEXO")){
+							line = line + "sexo;";
+						}else{
+							line = line + cell.getStringCellValue()+";";
+						}
 					//enem
 					} else if (columnNumber == 20) {
 						final DataFormatter df = new DataFormatter();

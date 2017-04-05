@@ -193,17 +193,20 @@ public class LimpaDuplicidade {
 				 * caso a cor não esteja preenchida, não escrever a linha */
 				} else if (coluna[4].equals("nao_informado")) {
 					escreve = false;
-					// escola
+				//cep
 				} else if (coluna[6].equals("nao_informado")) {
 					escreve = false;
+				// escola publica
+				}else if (coluna[7].equals("nao_informado")) {
+						escreve = false;
 				// escola pai
-				} else if (coluna[8].equals("nao_informado")) {
+				}else if (coluna[10].equals("nao_informado")) {
 					escreve = false;
 					// escola mae
-				} else if (coluna[9].equals("nao_informado")) {
+				} else if (coluna[11].equals("nao_informado")) {
 					escreve = false;
 					// renda familiar
-				} else if (coluna[10].equals("nao_informado")) {
+				} else if (coluna[12].equals("nao_informado")) {
 					escreve = false;
 				}
 
@@ -224,8 +227,11 @@ public class LimpaDuplicidade {
 					coluna[3] = "71_a_120";
 				}
 				
+				
+				
 				/* Novo teste com ENEM para, separando as notas em ranges de alto, medio, baixo*/
-				float enem = Float.parseFloat(coluna[7]);
+				float enem = Float.parseFloat(coluna[9]);
+				
 				if (enem > 0 && enem < 31) {
 					coluna[7] = "baixo";
 				} else if (enem < 61) {
@@ -252,7 +258,7 @@ public class LimpaDuplicidade {
 						|| coluna[10].substring(0, 4).equals("2011")
 						|| coluna[10].substring(0, 4).equals("2012")
 						|| coluna[10].substring(0, 4).equals("2013")
-						||*/ coluna[11].equals("2014 / 1")) {
+						||*/ coluna[13].equals("2014 / 2")) {
 
 					/*Separo por curso o training set
 					 */
@@ -290,7 +296,7 @@ public class LimpaDuplicidade {
 				
 				/*Separo por ano para conseguir fazer um validator
 				 */
-				if (coluna[11].equals("2015 / 1")){
+				if (coluna[13].equals("2015 / 1")){
 						/*|| coluna[10].substring(0, 4).equals("2016"))*/
 
 					/*Separo por curso o validator
@@ -331,8 +337,8 @@ public class LimpaDuplicidade {
 				 * Esse cabeçalho serve para conter todos os 
 				 * exemplos possíveis na hora da criação do arf
 				 */
-				if (coluna[11].equals("2014 / 1")
-					|| coluna[11].equals("2015 / 1")){
+				if (coluna[13].equals("2014 / 2")
+					|| coluna[13].equals("2015 / 1")){
 					
 					if (coluna[1].equals("analise_e_deselvolvimento_de_sistemas")) {
 						analise_w3_c.writeNext(linha);
@@ -461,9 +467,10 @@ public class LimpaDuplicidade {
 	 */
 	public String[] escreveLinha(String[] linha, String[] coluna) {
 
-		/*
 		//escrita da linha contém o nome
-		linha = new String[9];
+
+		/*
+		linha = new String[12];
 		linha[0] = coluna[0];
 		linha[1] = coluna[3];
 		linha[2] = coluna[4];
@@ -473,19 +480,22 @@ public class LimpaDuplicidade {
 		linha[6] = coluna[8];
 		linha[7] = coluna[9];
 		linha[8] = coluna[10];
-		*/
+		linha[9] = coluna[11];
+		linha[10] = coluna[12];
+		 */
 
 		// escrita da linha sem o nome
-		linha = new String[8];
+		linha = new String[9];
 		linha[0] = coluna[3];
 		linha[1] = coluna[4];
 		linha[2] = coluna[5];
 		linha[3] = coluna[6];
 		linha[4] = coluna[7];
 		linha[5] = coluna[8];
-		linha[6] = coluna[9];
-		linha[7] = coluna[10];
-
+		linha[6] = coluna[10];
+		linha[7] = coluna[11];
+		linha[8] = coluna[12];
+		
 		return linha;
 	}
 }
