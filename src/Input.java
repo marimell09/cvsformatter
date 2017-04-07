@@ -225,9 +225,9 @@ public class Input {
 						}
 						else if (!cell.getStringCellValue().equals("-")){
 							String numero = cell.getStringCellValue();
-							numero = numero.substring(0, 3);
+							numero = numero.substring(0, 4);
 							//System.out.println(numero);
-							line = line + numero + ";";
+							line = line + numero + "a;";
 						}else{
 							line = line + "nao_informado;";
 						}

@@ -17,27 +17,27 @@ public class LimpaDuplicidade {
 	 */
 	public static void main(String[] args) throws Exception {
 		LimpaDuplicidade ld = new LimpaDuplicidade();
-
+	
 		// Criando a instancia de leitura
 		CSVReader reader = new CSVReader(new FileReader(
 				"C:\\Users\\Mari\\Desktop\\Dados_teste\\dados\\por_curso\\limpeza_inicial.csv"),
 				',');
-
+	
 		//Criando todas as instancias de escrita
 		
 		
 		String csv = "C:\\Users\\Mari\\Desktop\\Dados_teste\\dados\\por_curso\\geral\\training_test_geral.csv";
 		CSVWriter writer = new CSVWriter(new FileWriter(csv), ',',
 				CSVWriter.NO_QUOTE_CHARACTER);
-
+	
 		String csv2 = "C:\\Users\\Mari\\Desktop\\Dados_teste\\dados\\por_curso\\geral\\validator_geral.csv";
 		CSVWriter writer2 = new CSVWriter(new FileWriter(csv2), ',',
 				CSVWriter.NO_QUOTE_CHARACTER);
-
+	
 		String csv3 = "C:\\Users\\Mari\\Desktop\\Dados_teste\\dados\\por_curso\\geral\\cabecalho_geral.csv";
 		CSVWriter writer3 = new CSVWriter(new FileWriter(csv3), ',',
 				CSVWriter.NO_QUOTE_CHARACTER);
-
+	
 		String analise_t = "C:\\Users\\Mari\\Desktop\\Dados_teste\\dados\\por_curso\\analise\\analise_training.csv";
 		String analise_v = "C:\\Users\\Mari\\Desktop\\Dados_teste\\dados\\por_curso\\analise\\analise_validator.csv";
 		String analise_c = "C:\\Users\\Mari\\Desktop\\Dados_teste\\dados\\por_curso\\analise\\analise_cabecalho.csv";
@@ -47,7 +47,7 @@ public class LimpaDuplicidade {
 				CSVWriter.NO_QUOTE_CHARACTER);
 		CSVWriter analise_w3_c = new CSVWriter(new FileWriter(analise_c), ',',
 				CSVWriter.NO_QUOTE_CHARACTER);
-
+	
 		String automacao_e_manufatura_t = "C:\\Users\\Mari\\Desktop\\Dados_teste\\dados\\por_curso\\automacao_e_manufatura\\automacao_e_manufatura_training.csv";
 		String automacao_e_manufatura_v = "C:\\Users\\Mari\\Desktop\\Dados_teste\\dados\\por_curso\\automacao_e_manufatura\\automacao_e_manufatura_validator.csv";
 		String automacao_e_manufatura_c = "C:\\Users\\Mari\\Desktop\\Dados_teste\\dados\\por_curso\\automacao_e_manufatura\\automacao_e_manufatura_cabecalho.csv";
@@ -57,7 +57,7 @@ public class LimpaDuplicidade {
 				automacao_e_manufatura_v), ',', CSVWriter.NO_QUOTE_CHARACTER);
 		CSVWriter automacao_e_manufatura_w3_c = new CSVWriter(new FileWriter(
 				automacao_e_manufatura_c), ',', CSVWriter.NO_QUOTE_CHARACTER);
-
+	
 		String banco_de_dados_t = "C:\\Users\\Mari\\Desktop\\Dados_teste\\dados\\por_curso\\banco_de_dados\\banco_de_dados_training.csv";
 		String banco_de_dados_v = "C:\\Users\\Mari\\Desktop\\Dados_teste\\dados\\por_curso\\banco_de_dados\\banco_de_dados_validator.csv";
 		String banco_de_dados_c = "C:\\Users\\Mari\\Desktop\\Dados_teste\\dados\\por_curso\\banco_de_dados\\banco_de_dados_cabecalho.csv";
@@ -67,7 +67,7 @@ public class LimpaDuplicidade {
 				banco_de_dados_v), ',', CSVWriter.NO_QUOTE_CHARACTER);
 		CSVWriter banco_de_dados_w3_c = new CSVWriter(new FileWriter(
 				banco_de_dados_c), ',', CSVWriter.NO_QUOTE_CHARACTER);
-
+	
 		String gestao_da_producao_t = "C:\\Users\\Mari\\Desktop\\Dados_teste\\dados\\por_curso\\gestao_da_producao\\gestao_da_producao_training.csv";
 		String gestao_da_producao_v = "C:\\Users\\Mari\\Desktop\\Dados_teste\\dados\\por_curso\\gestao_da_producao\\gestao_da_producao_validator.csv";
 		String gestao_da_producao_c = "C:\\Users\\Mari\\Desktop\\Dados_teste\\dados\\por_curso\\gestao_da_producao\\gestao_da_producao_cabecalho.csv";
@@ -77,7 +77,7 @@ public class LimpaDuplicidade {
 				gestao_da_producao_v), ',', CSVWriter.NO_QUOTE_CHARACTER);
 		CSVWriter gestao_da_producao_w3_c = new CSVWriter(new FileWriter(
 				gestao_da_producao_c), ',', CSVWriter.NO_QUOTE_CHARACTER);
-
+	
 		String logistica_t = "C:\\Users\\Mari\\Desktop\\Dados_teste\\dados\\por_curso\\logistica\\logistica_training.csv";
 		String logistica_v = "C:\\Users\\Mari\\Desktop\\Dados_teste\\dados\\por_curso\\logistica\\logistica_validator.csv";
 		String logistica_c = "C:\\Users\\Mari\\Desktop\\Dados_teste\\dados\\por_curso\\logistica\\logistica_cabecalho.csv";
@@ -87,7 +87,7 @@ public class LimpaDuplicidade {
 				',', CSVWriter.NO_QUOTE_CHARACTER);
 		CSVWriter logistica_w3_c = new CSVWriter(new FileWriter(logistica_c),
 				',', CSVWriter.NO_QUOTE_CHARACTER);
-
+	
 		String manutencao_de_aeronave_t = "C:\\Users\\Mari\\Desktop\\Dados_teste\\dados\\por_curso\\manutencao_de_aeronave\\manutencao_de_aeronave_training.csv";
 		String manutencao_de_aeronave_v = "C:\\Users\\Mari\\Desktop\\Dados_teste\\dados\\por_curso\\manutencao_de_aeronave\\manutencao_de_aeronave_validator.csv";
 		String manutencao_de_aeronave_c = "C:\\Users\\Mari\\Desktop\\Dados_teste\\dados\\por_curso\\manutencao_de_aeronave\\manutencao_de_aeronave_cabecalho.csv";
@@ -97,7 +97,7 @@ public class LimpaDuplicidade {
 				manutencao_de_aeronave_v), ',', CSVWriter.NO_QUOTE_CHARACTER);
 		CSVWriter manutencao_de_aeronave_w3_c = new CSVWriter(new FileWriter(
 				manutencao_de_aeronave_c), ',', CSVWriter.NO_QUOTE_CHARACTER);
-
+	
 		String projetos_de_estruturas_aeronauticas_t = "C:\\Users\\Mari\\Desktop\\Dados_teste\\dados\\por_curso\\projetos_de_estruturas_aeronauticas\\projetos_de_estruturas_aeronauticas_training.csv";
 		String projetos_de_estruturas_aeronauticas_v = "C:\\Users\\Mari\\Desktop\\Dados_teste\\dados\\por_curso\\projetos_de_estruturas_aeronauticas\\projetos_de_estruturas_aeronauticas_validator.csv";
 		String projetos_de_estruturas_aeronauticas_c = "C:\\Users\\Mari\\Desktop\\Dados_teste\\dados\\por_curso\\projetos_de_estruturas_aeronauticas\\projetos_de_estruturas_aeronauticas_cabecalho.csv";
@@ -110,18 +110,18 @@ public class LimpaDuplicidade {
 		CSVWriter projetos_de_estruturas_aeronauticas_w3_c = new CSVWriter(
 				new FileWriter(projetos_de_estruturas_aeronauticas_c), ',',
 				CSVWriter.NO_QUOTE_CHARACTER);
-
+	
 		// Lê todas as linhas de uma vez
 		List<String[]> allRows = reader.readAll();
-
+	
 		//linha onde as colunas específicas serão gravadas
 		String[] linha = null;
-
+	
 		/* Retiro as labels do arquivo principal, para serem escritas
 		 *  abaixo em cada um dos documentos
 		 */
 		String[] coluna = allRows.get(0);
-
+	
 		/* escreve as labels dos campos */
 		writer.writeNext(ld.escreveLinha(linha, coluna));
 		writer2.writeNext(ld.escreveLinha(linha, coluna));
@@ -157,16 +157,16 @@ public class LimpaDuplicidade {
 		
 		//Entra no for passando em todas as linhas de registros do arquivo
 		for (int count = 1; count < allRows.size(); count++) {
-
+	
 			/* allRows.get pega a linha e divide as colunas em um array de string */
 			coluna = allRows.get(count);
 			
 			/* método que checa a duplicidade de cada linha */
 			int count2 = ld.checaDuplicidade(count, allRows, allRows.size());
-
+	
 			/* booleano que é usado para saber se linha é escrita ou não */
 			boolean escreve = true;
-
+	
 			/* Se o retorno do método de count2 for maior, significando que achou 1 ou mais linhas repetidas
 			 * não escreve é setado para faldo indicando que linha não será escrita e o contador do for será 
 			 * setado a pulando todas as linhas repetidas, não importando quantas se repetem */
@@ -174,16 +174,17 @@ public class LimpaDuplicidade {
 				count = count2;
 				escreve = false;
 			}
-
+	
 			/*caso escreve não tenha sido setado para falso anteriormente 
 			 * ocorrerá uma limpeza por colunas
 			 */
 			if (escreve == true) {
-
+	
 				/* turno
 				 * caso o turno seja ead, não escreve a linha (não queremos ead por ser ensino a distancia)
 				 */
-				if (coluna[2].equals("ead")) {
+				int col = 2;
+				if (coluna[col].equals("ead")) {
 					escreve = false;
 					
 				/*A partir daqui minha limpeza retira todos os campos vazios da planilha, 
@@ -209,35 +210,36 @@ public class LimpaDuplicidade {
 				} else if (coluna[12].equals("nao_informado")) {
 					escreve = false;
 				}
-
+	
+				int col2 = 3;
 				/* Separo as idades em agrupamentos para não confundir o algoritmo */
-				int idade = Integer.parseInt(coluna[3]);
-
+				int idade = Integer.parseInt(coluna[col2]);
+	
 				if (idade < 23) {
-					coluna[3] = "0_a_22";
+					coluna[col2] = "0_a_22";
 				} else if (idade < 30) {
-					coluna[3] = "23_a_29";
+					coluna[col2] = "23_a_29";
 				} else if (idade <= 40) {
-					coluna[3] = "30_a_40";
+					coluna[col2] = "30_a_40";
 				} else if (idade <= 50) {
-					coluna[3] = "41_a_50";
+					coluna[col2] = "41_a_50";
 				} else if (idade <= 70) {
-					coluna[3] = "51_a_70";
+					coluna[col2] = "51_a_70";
 				} else if (idade <= 120) {
-					coluna[3] = "71_a_120";
+					coluna[col2] = "71_a_120";
 				}
 				
 				
-				
+				int col3 = 9;
 				/* Novo teste com ENEM para, separando as notas em ranges de alto, medio, baixo*/
-				float enem = Float.parseFloat(coluna[9]);
+				float enem = Float.parseFloat(coluna[col3]);
 				
 				if (enem > 0 && enem < 31) {
-					coluna[7] = "baixo";
+					coluna[col3] = "baixo";
 				} else if (enem < 61) {
-					coluna[7] = "medio";
+					coluna[col3] = "medio";
 				} else if (enem <= 100) {
-					coluna[7] = "alto";
+					coluna[col3] = "alto";
 				}
 				
 				/*Meu método escreveLinha decide qual das colunas 
@@ -245,9 +247,10 @@ public class LimpaDuplicidade {
 				 */
 				linha = ld.escreveLinha(linha, coluna);
 			}
-
+	
 			// Se escreve é true, significa que posso escrever na planilha
 			if (escreve == true) {
+				int col4 = 13;
 				
 				/* Separo por ano para conseguir fazer um training set*/
 				if (	/*coluna[10].substring(0, 4).equals("2006")
@@ -258,8 +261,8 @@ public class LimpaDuplicidade {
 						|| coluna[10].substring(0, 4).equals("2011")
 						|| coluna[10].substring(0, 4).equals("2012")
 						|| coluna[10].substring(0, 4).equals("2013")
-						||*/ coluna[13].equals("2014 / 2")) {
-
+						||*/ coluna[col4].equals("2014 / 1")) {
+	
 					/*Separo por curso o training set
 					 */
 					if (coluna[1]
@@ -296,9 +299,9 @@ public class LimpaDuplicidade {
 				
 				/*Separo por ano para conseguir fazer um validator
 				 */
-				if (coluna[13].equals("2015 / 1")){
+				if (coluna[col4].equals("2015 / 1")){
 						/*|| coluna[10].substring(0, 4).equals("2016"))*/
-
+	
 					/*Separo por curso o validator
 					 */
 					if (coluna[1]
@@ -337,8 +340,8 @@ public class LimpaDuplicidade {
 				 * Esse cabeçalho serve para conter todos os 
 				 * exemplos possíveis na hora da criação do arf
 				 */
-				if (coluna[13].equals("2014 / 2")
-					|| coluna[13].equals("2015 / 1")){
+				if (coluna[col4].equals("2014 / 1")
+					|| coluna[col4].equals("2015 / 1")){
 					
 					if (coluna[1].equals("analise_e_deselvolvimento_de_sistemas")) {
 						analise_w3_c.writeNext(linha);
@@ -371,7 +374,7 @@ public class LimpaDuplicidade {
 				}
 			}
 		}
-
+	
 		/*Fecho toda as minhas instancias de escrita
 		 */
 		writer.close();
@@ -407,7 +410,7 @@ public class LimpaDuplicidade {
 		projetos_de_estruturas_aeronauticas_w3_c.close();
 		
 		System.out.println("Done!");
-
+	
 	}
 	
 	
@@ -470,7 +473,7 @@ public class LimpaDuplicidade {
 		//escrita da linha contém o nome
 
 		/*
-		linha = new String[12];
+		linha = new String[10];
 		linha[0] = coluna[0];
 		linha[1] = coluna[3];
 		linha[2] = coluna[4];
@@ -478,10 +481,9 @@ public class LimpaDuplicidade {
 		linha[4] = coluna[6];
 		linha[5] = coluna[7];
 		linha[6] = coluna[8];
-		linha[7] = coluna[9];
-		linha[8] = coluna[10];
-		linha[9] = coluna[11];
-		linha[10] = coluna[12];
+		linha[7] = coluna[10];
+		linha[8] = coluna[11];
+		linha[9] = coluna[12];
 		 */
 
 		// escrita da linha sem o nome
