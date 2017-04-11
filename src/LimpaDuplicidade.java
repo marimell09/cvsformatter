@@ -251,6 +251,8 @@ public class LimpaDuplicidade {
 			// Se escreve é true, significa que posso escrever na planilha
 			if (escreve == true) {
 				int col4 = 13;
+				String training = "2013 / 1";
+				String validator = "2014 / 1";
 				
 				/* Separo por ano para conseguir fazer um training set*/
 				if (	/*coluna[10].substring(0, 4).equals("2006")
@@ -261,7 +263,7 @@ public class LimpaDuplicidade {
 						|| coluna[10].substring(0, 4).equals("2011")
 						|| coluna[10].substring(0, 4).equals("2012")
 						|| coluna[10].substring(0, 4).equals("2013")
-						||*/ coluna[col4].equals("2014 / 1")) {
+						||*/ coluna[col4].equals(training)) {
 	
 					/*Separo por curso o training set
 					 */
@@ -299,7 +301,7 @@ public class LimpaDuplicidade {
 				
 				/*Separo por ano para conseguir fazer um validator
 				 */
-				if (coluna[col4].equals("2015 / 1")){
+				if (coluna[col4].equals(validator)){
 						/*|| coluna[10].substring(0, 4).equals("2016"))*/
 	
 					/*Separo por curso o validator
@@ -340,8 +342,8 @@ public class LimpaDuplicidade {
 				 * Esse cabeçalho serve para conter todos os 
 				 * exemplos possíveis na hora da criação do arf
 				 */
-				if (coluna[col4].equals("2014 / 1")
-					|| coluna[col4].equals("2015 / 1")){
+				if (coluna[col4].equals(training)
+					|| coluna[col4].equals(validator)){
 					
 					if (coluna[1].equals("analise_e_deselvolvimento_de_sistemas")) {
 						analise_w3_c.writeNext(linha);
@@ -472,18 +474,19 @@ public class LimpaDuplicidade {
 
 		//escrita da linha contém o nome
 
-		/*
 		linha = new String[10];
-		linha[0] = coluna[0];
-		linha[1] = coluna[3];
-		linha[2] = coluna[4];
-		linha[3] = coluna[5];
-		linha[4] = coluna[6];
-		linha[5] = coluna[7];
-		linha[6] = coluna[8];
-		linha[7] = coluna[10];
-		linha[8] = coluna[11];
-		linha[9] = coluna[12];
+		
+		/*
+		linha[0] = coluna[0]; //nome
+		linha[1] = coluna[3]; //idade
+		linha[2] = coluna[4]; //cor
+		linha[3] = coluna[5]; //situacao curso
+		linha[4] = coluna[6]; //cep
+		linha[5] = coluna[7]; //escola
+		linha[6] = coluna[8]; //sexo
+		linha[7] = coluna[10]; //escola pai
+		linha[8] = coluna[11]; //escola mae
+		linha[9] = coluna[12]; //renda familiar
 		 */
 
 		// escrita da linha sem o nome
