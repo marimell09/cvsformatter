@@ -197,17 +197,23 @@ public class LimpaDuplicidade {
 				//cep
 				} else if (coluna[6].equals("nao_informado")) {
 					escreve = false;
-				// escola publica
+				//classificacao
 				}else if (coluna[7].equals("nao_informado")) {
-						escreve = false;
+					escreve = false;
+				//nota
+				}else if (coluna[8].equals("nao_informado")) {
+					escreve = false;
+				// escola publica
+				}else if (coluna[9].equals("nao_informado")) {
+					escreve = false;
 				// escola pai
-				}else if (coluna[10].equals("nao_informado")) {
+				}else if (coluna[12].equals("nao_informado")) {
 					escreve = false;
-					// escola mae
-				} else if (coluna[11].equals("nao_informado")) {
+				// escola mae
+				} else if (coluna[13].equals("nao_informado")) {
 					escreve = false;
-					// renda familiar
-				} else if (coluna[12].equals("nao_informado")) {
+				// renda familiar
+				} else if (coluna[14].equals("nao_informado")) {
 					escreve = false;
 				}
 	
@@ -229,8 +235,8 @@ public class LimpaDuplicidade {
 					coluna[col2] = "71_a_120";
 				}
 				
-				
-				int col3 = 9;
+							
+				int col3 = 11;
 				/* Novo teste com ENEM para, separando as notas em ranges de alto, medio, baixo*/
 				float enem = Float.parseFloat(coluna[col3]);
 				
@@ -250,7 +256,7 @@ public class LimpaDuplicidade {
 	
 			// Se escreve é true, significa que posso escrever na planilha
 			if (escreve == true) {
-				int col4 = 13;
+				int col4 = 15;
 				String training = "2014 / 1";
 				String validator = "2015 / 1";
 				
@@ -474,31 +480,34 @@ public class LimpaDuplicidade {
 
 		/*
 		//escrita da linha contém o nome
-		linha = new String[10];
-		
+		linha = new String[12];
 		linha[0] = coluna[0]; //nome
 		linha[1] = coluna[3]; //idade
 		linha[2] = coluna[4]; //cor
 		linha[3] = coluna[5]; //situacao curso
 		linha[4] = coluna[6]; //cep
-		linha[5] = coluna[7]; //escola
-		linha[6] = coluna[8]; //sexo
-		linha[7] = coluna[10]; //escola pai
-		linha[8] = coluna[11]; //escola mae
-		linha[9] = coluna[12]; //renda familiar
+		linha[5] = coluna[7]; //classificacao
+		linha[6] = coluna[8]; //nota
+		linha[7] = coluna[9]; //escola
+		linha[8] = coluna[10]; //sexo
+		linha[9] = coluna[12]; //escola pai
+		linha[10] = coluna[13]; //escola mae
+		linha[11] = coluna[14]; //renda familiar
 		 */
 
 		// escrita da linha sem o nome
-		linha = new String[9];
-		linha[0] = coluna[3];
-		linha[1] = coluna[4];
-		linha[2] = coluna[5];
-		linha[3] = coluna[6];
-		linha[4] = coluna[7];
-		linha[5] = coluna[8];
-		linha[6] = coluna[10];
-		linha[7] = coluna[11];
-		linha[8] = coluna[12];
+		linha = new String[11];
+		linha[0] = coluna[3]; //idade
+		linha[1] = coluna[4]; //cor
+		linha[2] = coluna[5]; //situacao curso
+		linha[3] = coluna[6]; //cep
+		linha[4] = coluna[7]; //classificacao
+		linha[5] = coluna[8]; //nota
+		linha[6] = coluna[9]; //escola
+		linha[7] = coluna[10]; //sexo
+		linha[8] = coluna[12]; //escola pai
+		linha[9] = coluna[13]; //escola mae
+		linha[10] = coluna[14]; //renda familiar
 		
 		return linha;
 	}

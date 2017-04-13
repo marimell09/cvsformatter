@@ -233,8 +233,38 @@ public class Input {
 						}
 					//classificacao
 					} else if (columnNumber == 16) {
+						
+						final DataFormatter df = new DataFormatter();
+						final XSSFCell cell1 = (XSSFCell) row.getCell(columnNumber);
+						String valueAsString = df.formatCellValue(cell1);
+						
+						if (valueAsString.equals("CLASS")){
+							line = line + "classificacao;";				
+						}else if (valueAsString.equals("-")){
+							line = line + "nao_informado;";
+						}else if (valueAsString.equals("AUSENTE")){
+							line = line + "nao_informado;";
+						}else{
+							valueAsString = valueAsString.substring(0, 1);
+							line = line + valueAsString+";";
+						}
+		
 					//nota
 					} else if (columnNumber == 17) {
+						
+
+						final DataFormatter df = new DataFormatter();
+						final XSSFCell cell1 = (XSSFCell) row.getCell(columnNumber);
+						String valueAsString = df.formatCellValue(cell1);
+						
+						if (valueAsString.equals("NOTA")){
+							line = line + "nota;";				
+						}else if (valueAsString.equals("-")){
+							line = line + "nao_informado;";
+						}else{
+							line = line + valueAsString+";";
+						}
+			
 					//escola publica
 					} else if (columnNumber == 18) {
 						/*
