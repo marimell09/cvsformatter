@@ -251,7 +251,7 @@ public class LimpaDuplicidade {
 			// Se escreve é true, significa que posso escrever na planilha
 			if (escreve == true) {
 				int col4 = 13;
-				String training = "2014 / 2";
+				String training = "2014 / 1";
 				String validator = "2015 / 1";
 				
 				/* Separo por ano para conseguir fazer um training set*/
@@ -472,8 +472,8 @@ public class LimpaDuplicidade {
 	 */
 	public String[] escreveLinha(String[] linha, String[] coluna) {
 
+		/*
 		//escrita da linha contém o nome
-
 		linha = new String[10];
 		
 		linha[0] = coluna[0]; //nome
@@ -486,8 +486,8 @@ public class LimpaDuplicidade {
 		linha[7] = coluna[10]; //escola pai
 		linha[8] = coluna[11]; //escola mae
 		linha[9] = coluna[12]; //renda familiar
+		 */
 
-		 /*
 		// escrita da linha sem o nome
 		linha = new String[9];
 		linha[0] = coluna[3];
@@ -499,7 +499,6 @@ public class LimpaDuplicidade {
 		linha[6] = coluna[10];
 		linha[7] = coluna[11];
 		linha[8] = coluna[12];
-		  */
 		
 		return linha;
 	}
